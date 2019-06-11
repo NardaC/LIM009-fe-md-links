@@ -1,0 +1,40 @@
+{
+  "name": "md-links",
+  "version": "1.0.0",
+  "description": "md-link library",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "babel src -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NardaC/LIM009-fe-md-links.git"
+  },
+  "keywords": [
+    "javascript",
+    "markdown",
+    "path",
+    "library",
+    "links"
+  ],
+  "author": "Narda Crocco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NardaC/LIM009-fe-md-links/issues"
+  },
+  "homepage": "https://github.com/NardaC/LIM009-fe-md-links#readme",
+  "dependencies": {
+    "@babel/preset-env": "^7.4.5",
+    "babel": "^6.23.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "eslint": "^5.16.0",
+    "jest": "^24.8.0"
+  }
+}
