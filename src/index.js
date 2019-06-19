@@ -27,7 +27,6 @@ export const isFile = (ruta)=>{
 }
 //console.log(isFile('holi'));
 
-
 export const isDirectory = (ruta)=>{
     const stats = fs.statSync(ruta);
     return stats.isDirectory()
@@ -66,9 +65,9 @@ export const readAllFiles = (ruta) =>{
         let dir =fs.readdirSync(ruta)
         dir.forEach((hijo) => {
             const arrNew = readAllFiles(path.join(ruta, hijo))
-          arr = arr.concat(arrNew);
+            arr = arr.concat(arrNew);
         });     
     }
-    return arr  
+    return arr ;  
 }
 //console.log(readAllFiles(ruta5));

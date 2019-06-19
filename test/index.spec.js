@@ -1,10 +1,10 @@
-import { isPathAbsolute, isFile, isDirectory, readFile, readDir, isMd } from "../src/index.js";
+import { isPathAbsolute, isFile, isDirectory, readFile, readDir, isMd, readAllFiles } from "../src/index.js";
 
 describe('funcion que indica si la ruta es absoluta',() => {
     it('deberia ser una funcion',() => {
         expect(typeof isPathAbsolute).toBe('function');
      })
-    it('deberia retornar true si la ruta es absoluta',() => {
+    it('deberia retornar la ruta es absoluta',() => {
         expect(isPathAbsolute('/Users/narda/Desktop/')).toBe('/Users/narda/Desktop/');
     })
     it('deberia retornar una ruta absoluta si es relativa',() => {
@@ -78,4 +78,21 @@ describe('funcion que reconoce si es markdown',() => {
     it('deberia retornar false si no es markdown', () => {
         expect(isMd('holi.js')).toBe(false)
     })
+})
+
+describe('funcion que lee el directorio, valida los md',() => {
+    it('deberia ser una funcion', () => {
+        expect(typeof readAllFiles).toBe('function');
+    })
+    it('deberia retornar los archivos md en un array', () => {
+        expect(readAllFiles('/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba')).toEqual([
+            '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir11/file112.md',
+            '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir12/file121.md',
+            '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir3/file32.md',
+            '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md'
+          ])
+    })
+    // it('deberia retornar false si no es markdown', () => {
+    //     expect(isMd('holi.js')).toBe(false)
+    // })
 })
