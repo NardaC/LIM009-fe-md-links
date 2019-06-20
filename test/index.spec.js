@@ -64,7 +64,7 @@ describe('funcion que lee una carpeta',() => {
         expect(typeof readDir).toBe('function');
     })
     it('deberia leer una carpeta y retornar el array', () => {
-        expect(readDir('/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/')).toEqual([ "/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/holi.html", "/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/index.js","/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/main.js"])
+        expect(readDir('/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/')).toEqual([ "/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/holi.html", "/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/index.js","/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/main.js","/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/mdLinks.js"])
     })
 })
 

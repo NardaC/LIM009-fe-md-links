@@ -4,11 +4,12 @@ import fetch from 'node-fetch';
 const ruta1 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba'
 const ruta2 ='index.js'
 const ruta3 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir11/file112.md'
+const ruta4 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src'
 
 import {isPathAbsolute, readAllFiles, readFile} from './index.js'
 
-//Hola!, si lo vas a copiar, por favor cambia los nombres de las funciones y de las variables,
-// todo el codigo que me copiaste esta igual, hasta los comentarios y los test -_-
+//HOLA!, SI LO VAS A COPIAR, POR FAVOR CAMBIA EL NOMBRE DE LAS FUNCIONES Y LAS VARIABLES,
+//TODO EL CODIGO QUE ME COPIASTE ESTA IGUAL, HASTA LOS COMENTARIOS Y LOS TEST -_-
 export const pathMdLinks = (ruta) => {
     const absoPath =isPathAbsolute(ruta);
     let pathMd = readAllFiles(absoPath);
@@ -42,8 +43,8 @@ export const optionLinks =(ruta)=>{
             return prop;
             })
         .catch(err => {
-            prop.statusText = "Not ok"
-            //prop.status =err.code
+            prop.statusText = "Fail"
+            prop.status =err.code
             prop.status = "Not Found"
             
             return prop;
@@ -52,7 +53,7 @@ export const optionLinks =(ruta)=>{
     return Promise.all(arrProme);
 }
 //console.log(optionLinks(ruta1))
-// optionLinks(ruta1)
+// optionLinks(ruta4)
 // .then( res => console.log(res))
 // .catch(err => console.log(err))
 
