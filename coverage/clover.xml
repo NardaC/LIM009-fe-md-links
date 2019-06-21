@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1561010493368" clover="3.2.0">
-  <project timestamp="1561010493368" name="All files">
+<coverage generated="1561072684117" clover="3.2.0">
+  <project timestamp="1561072684117" name="All files">
     <metrics statements="63" coveredstatements="63" conditionals="10" coveredconditionals="9" methods="16" coveredmethods="16" elements="89" coveredelements="88" complexity="0" loc="63" ncloc="63" packages="1" files="2" classes="2"/>
     <file name="index.js" path="/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/index.js">
       <metrics statements="36" coveredstatements="36" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="9"/>

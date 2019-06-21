@@ -8,8 +8,6 @@ const ruta4 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src'
 
 import {isPathAbsolute, readAllFiles, readFile} from './index.js'
 
-//HOLA!, SI LO VAS A COPIAR, POR FAVOR CAMBIA EL NOMBRE DE LAS FUNCIONES Y LAS VARIABLES,
-//TODO EL CODIGO QUE ME COPIASTE ESTA IGUAL, HASTA LOS COMENTARIOS Y LOS TEST -_-
 export const pathMdLinks = (ruta) => {
     const absoPath =isPathAbsolute(ruta);
     let pathMd = readAllFiles(absoPath);
@@ -44,7 +42,7 @@ export const optionLinks =(ruta)=>{
             })
         .catch(err => {
             prop.statusText = "Fail"
-            prop.status =err.code
+            //prop.status =err.code
             prop.status = "Not Found"
             
             return prop;
@@ -53,9 +51,9 @@ export const optionLinks =(ruta)=>{
     return Promise.all(arrProme);
 }
 //console.log(optionLinks(ruta1))
-// optionLinks(ruta4)
-// .then( res => console.log(res))
-// .catch(err => console.log(err))
+optionLinks(ruta1)
+.then( res => console.log(res))
+.catch(err => console.log(err))
 
 
 
