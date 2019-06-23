@@ -9,13 +9,9 @@ let option1
 let option2 
 
 export const mdLinksCli =(path, opt1, opt2) => {
-    return mdLinks(path,{validate:false})
-    .then((res)=>{
-        if(readAllFiles(res).length=== 0){
-            return 'esta ruta no contiene archivos md'           
-        }
-    })
-    
+    // if(readAllFiles(path).length=== 0){
+    //     return 'esta ruta no contiene archivos md'           
+    // }
     return mdLinks(path,{validate:true})
     .then((res)=>{
         if(path && !opt1 && !opt2){
