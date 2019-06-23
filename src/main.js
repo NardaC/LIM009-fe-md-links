@@ -51,9 +51,9 @@ export const optionLinks =(ruta)=>{
     return Promise.all(arrProme);
 }
 //console.log(optionLinks(ruta1))
-optionLinks(ruta1)
-.then( res => console.log(res))
-.catch(err => console.log(err))
+// optionLinks(ruta1)
+// .then( res => console.log(res))
+// .catch(err => console.log(err))
 
 
 

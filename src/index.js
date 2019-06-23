@@ -70,4 +70,4 @@ export const readAllFiles = (ruta) =>{
     }
     return arr ;  
 }
-//console.log(readAllFiles(ruta5));
+// console.log(readAllFiles(ruta1));
