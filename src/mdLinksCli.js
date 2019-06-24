@@ -1,45 +1,38 @@
 var clc = require("cli-color");
 
-import { stats, BrokenLink} from './validateCli.js'
+import { stats, brokenLink} from './validateCli.js'
 import {mdLinks} from './mdLinks.js'
 import {readAllFiles} from './main.js'
 
-const ruta1 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src';
-let option1 
-let option2 
+const ruta1 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba';
+let option1 = '--validate'
+let option2 ='--stats'
 
 export const mdLinksCli =(path, opt1, opt2) => {
-    // if(readAllFiles(path).length=== 0){
-    //     return 'esta ruta no contiene archivos md'           
-    // }
-    return mdLinks(path,{validate:true})
-    .then((res)=>{
+        return mdLinks(path,{validate:true})
+        .then((res)=>{
         if(path && !opt1 && !opt2){
             let newArr =res.map((prop)=>{
-                return (`${prop.ruta} ${prop.href} ${prop.text}`) 
+                return `${prop.ruta} ${prop.href} ${prop.text}` 
             })
             return clc.xterm(37)(newArr.toString().replace(/,/g,'\n'))
         }else if(path && opt1 ==='--validate' && !opt2){
             let newArr =res.map((prop)=>{
-                return (`${prop.ruta} ${prop.href} ${prop.text} ${prop.statusText} ${prop.status}`) 
+                return `${prop.ruta} ${prop.href} ${prop.text} ${prop.statusText} ${prop.status}`
             })
             return clc.xterm(116)(newArr.toString().replace(/,/g,'\n'))
         }else if (path && opt1 ==='--stats' && !opt2){
             // if(readAllFiles(path).length === 0){
             //     return'esta ruta no contiene archivos md'           
             // }
-            return stats(path);
+            return stats(res);
         }else if (path && opt1 ==='--validate' && opt2 ==='--stats'){
-            return(BrokenLink(path))
-        }else{
-            console.log('holi');
-            
+            return(brokenLink(res))
         }
     })
     .catch((err)=>{
         return clc.xterm(196)(err)
     })
-   
 }
 //console.log(mdLinksCli(ruta1, option1 ,option2))
 

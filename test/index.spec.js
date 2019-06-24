@@ -1,14 +1,33 @@
+import mock from 'mock-fs'
+import path from 'path'
 import { isPathAbsolute, isFile, isDirectory, readFile, readDir, isMd, readAllFiles } from "../src/index.js";
+
+beforeAll(()=>{
+    mock({
+        'prueba':{
+            'dir11':{
+                'app.js': '',
+                'README.md': `[youtube](https://www.youtube.com/) [google](https://www.google.com/)`,
+            },
+            'dir12':{
+                'markdown.md':`[peru](https://peru.com/) [peruroto](https://perurrr.com/)`,
+            },
+            'prueba.md': `[youtuberoto](https://github.com/Narda//-) `,
+            'holi.html':'holaaa'
+        }
+    })
+})
+afterAll(mock.restore)
 
 describe('funcion que indica si la ruta es absoluta',() => {
     it('deberia ser una funcion',() => {
         expect(typeof isPathAbsolute).toBe('function');
      })
     it('deberia retornar la ruta es absoluta',() => {
-        expect(isPathAbsolute('/Users/narda/Desktop/')).toBe('/Users/narda/Desktop/');
+        expect(isPathAbsolute(path.join(process.cwd(), 'README.md'))).toBe(path.join(process.cwd(), 'README.md'));
     })
     it('deberia retornar una ruta absoluta si es relativa',() => {
-        expect(isPathAbsolute('index.js')).toBe('/Users/narda/Desktop/Lim009/LIM009-fe-md-links/index.js');
+        expect(isPathAbsolute('README.md')).toBe(path.join(process.cwd(), 'README.md'));
     })
 });
 
@@ -17,10 +36,10 @@ describe('funcion que indica si es archivo',() => {
         expect(typeof isFile).toBe('function');
     })
     it('deberia retornar true si es un archivo',() => {
-        expect(isFile('src/index.js')).toBe(true);
+        expect(isFile(path.join(process.cwd(),'index.js'))).toBe(true);
     })
     it('deberia retornar false si no es un archivo',() => {
-        expect(isFile('src/')).toBe(false);
+        expect(isFile(path.join(process.cwd(),'src'))).toBe(false);
     })
     it('deberia fallar si la ruta no existe',() => {
         try {
@@ -36,10 +55,10 @@ describe('funcion que indica si es una carpeta',() => {
         expect(typeof isDirectory).toBe('function');
     })
     it('deberia retornar true si es una carpeta',() => {
-        expect(isDirectory('src/')).toBe(true);
+        expect(isDirectory(path.join(process.cwd(), 'dir11'))).toBe(true);
     })
     it('deberia retornar false si no es una carpeta',() => {
-        expect(isDirectory('src/index.js')).toBe(false);
+        expect(isDirectory(path.join(process.cwd(), 'app.js'))).toBe(false);
     })
     it('deberia fallar si la carpeta no existe',() => {
         try {
@@ -55,7 +74,7 @@ describe('funcion que lee el archivo',() => {
         expect(typeof readFile).toBe('function');
     })
     it('deberia leer un archivo', () => {
-        expect(readFile('/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/holi.html')).toBe("console.log('holi');")
+        expect(readFile(path.join(process.cwd(),'holi.html'))).toBe('holaaa')
     })
 })
 
@@ -64,7 +83,7 @@ describe('funcion que lee una carpeta',() => {
         expect(typeof readDir).toBe('function');
     })
     it('deberia leer una carpeta y retornar el array', () => {
-        expect(readDir('/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/')).toEqual([ "/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/holi.html", "/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/index.js","/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/main.js","/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/mdLinks.js"])
+        expect(readDir('prueba')).toEqual([ "/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/holi.html", "/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/index.js","/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/main.js","/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/mdLinks.js","/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/mdLinksCli.js", "/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/validateCli.js"])
     })
 })
 
@@ -73,10 +92,10 @@ describe('funcion que reconoce si es markdown',() => {
         expect(typeof isMd).toBe('function');
     })
     it('deberia retornar true si es markdown', () => {
-        expect(isMd('holi.md')).toBe(true)
+        expect(isMd(path.join(process.cwd(),'markdown.md'))).toBe(true)
     })
     it('deberia retornar false si no es markdown', () => {
-        expect(isMd('holi.js')).toBe(false)
+        expect(isMd(path.join(process.cwd(),'app.js'))).toBe(false)
     })
 })
 

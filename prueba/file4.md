@@ -2,5 +2,3 @@
 [googleroto](https://www.googleR.com/)
 [](https://www.facebookR.com/)
 [facebook](https://www.facebook.com/)
-[facebook](https://www.facebook.com/)
-[facebook](https://www.facebook.com/)

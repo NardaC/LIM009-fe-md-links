@@ -40,7 +40,7 @@ export const mdLinks = (path, opts) => {
             if(err.code === 'ENOENT'){
                 reject( 'ruta invalida')
             }else{
-                reject( pathMdLinks(path))
+                reject(pathMdLinks(path))
             }
         }
     })
@@ -54,7 +54,7 @@ export const mdLinks = (path, opts) => {
 // .then(res => console.log(res))
 // .catch(err => console.log(err))
 
-// mdLinks(ruta2)
+// mdLinks('jbnnm')
 // .then(res => console.log(res))
 // .catch(err => console.log(err))
 

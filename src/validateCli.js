@@ -1,83 +1,103 @@
 var clc = require("cli-color");
 
 import{ pathMdLinks, optionLinks} from './main.js'
+import{mdLinks} from './mdLinks.js'
+import{readAllFiles} from './index.js'
 
-const ruta = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba';
+
+// const ruta =[
+//   {
+//     href: 'https://www.youtube.com/',
+//     text: 'youtube',
+//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir11/file112.md',
+//     statusText: 'OK',
+//     status: 200
+//   },
+//   {
+//     href: 'https://www.google.com/',
+//     text: 'google',
+//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir11/file112.md',
+//     statusText: 'OK',
+//     status: 200
+//   },
+//   {
+//     href: 'https://peru.com/',
+//     text: 'peru',
+//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir12/file121.md',
+//     statusText: 'OK',
+//     status: 200
+//   },
+//   {
+//     href: 'https://perurrr.com/',
+//     text: 'peruroto',
+//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir12/file121.md',
+//     statusText: 'Fail',
+//     status: 'Not Found'
+//   },
+//   {
+//     href: 'https://github.com/Narda//-',
+//     text: 'youtuberoto',
+//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
+//     statusText: 'Not Found',
+//     status: 404
+//   },
+//   {
+//     href: 'https://www.googleR.com/',
+//     text: 'googleroto',
+//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
+//     statusText: 'Fail',
+//     status: 'Not Found'
+//   },
+//   {
+//     href: 'https://www.facebookR.com/',
+//     text: '',
+//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
+//     statusText: 'Fail',
+//     status: 'Not Found'
+//   },
+//   {
+//     href: 'https://www.facebook.com/',
+//     text: 'facebook',
+//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
+//     statusText: 'OK',
+//     status: 200
+//   }
+// ]
 
 export const stats = (path) => {
-    const arrHref= optionLinks(path)
-    .then((res)=>{
-      res.map((prop) => {
-        return prop.href 
-      });
+    const arrHref = path.map((prop)=>{
+      return prop.href
     })
-    const uniqueLinks=optionLinks(path)
-    .then((res)=>{
-      res.filter((item,index,array)=>{
-        //console.log(index)
-         return array.indexOf(item) === index;
-         //console.log(array.indexOf(item))
-      })
+    const uniqueLinks = path.filter((item,index,array)=>{
+      //console.log(index)
+       return array.indexOf(item) === index;
+       //console.log(array.indexOf(item))
     })
     const res =`Total: ${arrHref.length}\nUnique: ${uniqueLinks.length}`
     return clc.xterm(206)(res)
-    //return ({total: arrHref.length,unicos: uniqueLinks.length})
 }
-//console.log(stats(ruta))
+//console.log(stats(ruta));
 
-export const BrokenLink = (path) => {
-    const arrHref= optionLinks(path)
-    .then((res)=>{
-      res.map((prop) => {
-        return prop.href 
-      });
-    })
-    const uniqueLinks=optionLinks(path)
-    .then((res)=>{
-      res.filter((item,index,array)=>{
-      //console.log(index)
-        return array.indexOf(item) === index;
-       //console.log(array.indexOf(item))
-      })
-    });
-    const broken =optionLinks(path)
-    .then((res)=>{
-      res.filter((prop)=>{
-        if(prop.status === 'Not Found' || prop.status === 'Fail'){
-            prop.status
+export const brokenLink = (path) => {
+  const arrHref = path.map((prop)=>{
+    return prop.href
+  })
+  const uniqueLinks = path.filter((item,index,array)=>{
+    //console.log(index)
+     return array.indexOf(item) === index;
+     //console.log(array.indexOf(item))
+  })
+  const broken =path.filter((prop)=>{
+        if(prop.status === 'Not Found' || prop.statusText === 'fail'){
+            return prop.status
         } else if(prop.status >= 400){
-            prop.status
+            return prop.status
         }
-        return prop.status
-      })
+        //return prop.status
     })
-    const resp =`Total: ${arrHref.length}\nUnique: ${uniqueLinks.length}\nBroken: ${broken.length}`
-    return clc.xterm(225)(resp)
-
-    // const arrHref= arrObj.map((prop) => {
-    //   return prop.href
-    // });
-    // const uniqueLinks=arrHref.filter((item,index,array)=>{
-    //   //console.log(index)
-    //    return array.indexOf(item) === index;
-    // });
-    // const broken =arrObj.filter((prop)=>{
-    //     if(prop.status === 'Not Found' || prop.status === 'Fail'){
-    //         prop.status
-    //     } else if(prop.status >= 400){
-    //         prop.status
-    //     }
-    //     return prop.status
-    // })
-    // const res =`Total: ${arrHref.length}\nUnique: ${uniqueLinks.length}\nBroken: ${broken.length}`
-    // return clc.xterm(225)(res)
-    //const res =[].concat(`Broken: ${broken.length}`)
-    //return clc.xterm(225)(res)
-    //return {total: arrHref.length,unicos: uniqueLinks.length,broken: broken.length}       
+  const res =`Total: ${arrHref.length}\nUnique: ${uniqueLinks.length}\nBroken: ${broken.length}`
+  return clc.xterm(206)(res)
+  
 }
-// optionLinks(ruta)
-// .then(res=> console.log(statsValidate(res)))
-//console.log(BrokenLink(ruta))
-// BrokenLink(ruta)
-// .then(res=>console.log(res))
+//console.log(brokenLink(ruta));
 
