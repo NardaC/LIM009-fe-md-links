@@ -1,6 +1,7 @@
 
 import  marked from 'marked';
 import fetch from 'node-fetch';
+const callsites = require('callsites')
 const ruta1 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba'
 const ruta2 ='index.js'
 const ruta3 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir11/file112.md'
@@ -19,7 +20,7 @@ export const pathMdLinks = (ruta) => {
             links.push({
                 href:href,
                 text:text,
-                ruta: file
+                ruta:file
             });
         }
         marked(markLink, { renderer: renderer });
@@ -34,16 +35,18 @@ export const optionLinks =(ruta)=>{
     const arrProme = pathMdLinks(ruta).map((prop)=>{//console.log(prop.href)
         return fetch(prop.href)
         .then(res => {
-            if(res.status<= 399 || res.status < 600){
-                prop.statusText = res.statusText
-                prop.status = res.status
+            prop.status = res.status
+            if(res.ok){
+                prop.ok = 'ok'
+             }else{
+                prop.ok='fail'
              }
             return prop;
             })
         .catch(err => {
-            prop.statusText = "Fail"
-            //prop.status =err.code
-            prop.status = "Not Found"
+            //prop.statusText = "Fail"
+            prop.status = 500
+            //prop.status = "Not Found"
             
             return prop;
         })     
@@ -51,7 +54,7 @@ export const optionLinks =(ruta)=>{
     return Promise.all(arrProme);
 }
 //console.log(optionLinks(ruta1))
-// optionLinks(ruta1)
+// optionLinks('/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/peru.md')
 // .then( res => console.log(res))
 // .catch(err => console.log(err))
 

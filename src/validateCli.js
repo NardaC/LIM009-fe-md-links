@@ -5,64 +5,64 @@ import{mdLinks} from './mdLinks.js'
 import{readAllFiles} from './index.js'
 
 
-// const ruta =[
-//   {
-//     href: 'https://www.youtube.com/',
-//     text: 'youtube',
-//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir11/file112.md',
-//     statusText: 'OK',
-//     status: 200
-//   },
-//   {
-//     href: 'https://www.google.com/',
-//     text: 'google',
-//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir11/file112.md',
-//     statusText: 'OK',
-//     status: 200
-//   },
-//   {
-//     href: 'https://peru.com/',
-//     text: 'peru',
-//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir12/file121.md',
-//     statusText: 'OK',
-//     status: 200
-//   },
-//   {
-//     href: 'https://perurrr.com/',
-//     text: 'peruroto',
-//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir12/file121.md',
-//     statusText: 'Fail',
-//     status: 'Not Found'
-//   },
-//   {
-//     href: 'https://github.com/Narda//-',
-//     text: 'youtuberoto',
-//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
-//     statusText: 'Not Found',
-//     status: 404
-//   },
-//   {
-//     href: 'https://www.googleR.com/',
-//     text: 'googleroto',
-//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
-//     statusText: 'Fail',
-//     status: 'Not Found'
-//   },
-//   {
-//     href: 'https://www.facebookR.com/',
-//     text: '',
-//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
-//     statusText: 'Fail',
-//     status: 'Not Found'
-//   },
-//   {
-//     href: 'https://www.facebook.com/',
-//     text: 'facebook',
-//     ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
-//     statusText: 'OK',
-//     status: 200
-//   }
-// ]
+const ruta =[
+  {
+    href: 'https://www.youtube.com/',
+    text: 'youtube',
+    ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir11/file112.md',
+    statusText: 'OK',
+    status: 200
+  },
+  {
+    href: 'https://www.google.com/',
+    text: 'google',
+    ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir11/file112.md',
+    statusText: 'OK',
+    status: 200
+  },
+  {
+    href: 'https://peru.com/',
+    text: 'peru',
+    ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir12/file121.md',
+    statusText: 'OK',
+    status: 200
+  },
+  {
+    href: 'https://perurrr.com/',
+    text: 'peruroto',
+    ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir12/file121.md',
+    statusText: 'Fail',
+    status: 'Not Found'
+  },
+  {
+    href: 'https://github.com/Narda//-',
+    text: 'youtuberoto',
+    ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
+    statusText: 'Not Found',
+    status: 404
+  },
+  {
+    href: 'https://www.googleR.com/',
+    text: 'googleroto',
+    ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
+    statusText: 'Fail',
+    status: 'Not Found'
+  },
+  {
+    href: 'https://www.facebookR.com/',
+    text: '',
+    ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
+    statusText: 'Fail',
+    status: 'Not Found'
+  },
+  {
+    href: 'https://www.facebook.com/',
+    text: 'facebook',
+    ruta: '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/file4.md',
+    statusText: 'OK',
+    status: 200
+  }
+]
 
 export const stats = (path) => {
     const arrHref = path.map((prop)=>{

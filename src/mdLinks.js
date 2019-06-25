@@ -28,9 +28,7 @@ const ruta2 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src'
 export const mdLinks = (path, opts) => {
     return new Promise ((resolve, reject) => {
         try{
-            if(readAllFiles(path).length === 0){
-                resolve('esta ruta no contiene archivos md')           
-            }else if(opts.validate === true){
+            if(opts.validate === true){
                 resolve(optionLinks(path));
             } else if (!opts || opts.validate ===false){
                 resolve(pathMdLinks(path));
@@ -54,8 +52,8 @@ export const mdLinks = (path, opts) => {
 // .then(res => console.log(res))
 // .catch(err => console.log(err))
 
-// mdLinks('jbnnm')
+// mdLinks('/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src/peru.md')
 // .then(res => console.log(res))
-// .catch(err => console.log(err))
+// .catch(err => console.log(err.code))
 
 
