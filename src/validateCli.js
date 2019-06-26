@@ -1,4 +1,5 @@
-var clc = require("cli-color");
+#!/usr/bin/env node
+const clc = require("cli-color");
 
 import{ pathMdLinks, optionLinks} from './main.js'
 import{mdLinks} from './mdLinks.js'
