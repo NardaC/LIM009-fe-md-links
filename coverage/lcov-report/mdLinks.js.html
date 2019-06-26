@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">91.67% </span>
+        <span class="strong">92.31% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/12</span>
+        <span class='fraction'>12/13</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">75% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">91.67% </span>
+        <span class="strong">92.31% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/12</span>
+        <span class='fraction'>12/13</span>
       </div>
     </div>
     <p class="quiet">
@@ -105,23 +105,19 @@
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,11 +128,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,9 +171,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {pathMdLinks, optionLinks} from './main.js'
 import {readAllFiles} from './index.js'
 import { promises } from 'fs';
+const clc = require("cli-color");
+&nbsp;
 &nbsp;
 const ruta1 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba'
 // const ruta3 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir11/file112.html'
@@ -192,6 +202,7 @@ const ruta2 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src'
 //      })
 // }
 export const mdLinks = (path, opts) =&gt; {
+    
     return new Promise ((resolve, reject) =&gt; {
         try{
             if(opts.validate === true){
@@ -202,13 +213,14 @@ export const mdLinks = (path, opts) =&gt; {
         }
         catch(err){
             <span class="missing-if-branch" title="else path not taken" >E</span>if(err.code === 'ENOENT'){
-                reject( 'ruta invalida')
+                reject(clc.xterm(196)('ruta invalida'))
             }else{
 <span class="cstat-no" title="statement not covered" >                reject(pathMdLinks(path))</span>
             }
         }
     })
 };
+&nbsp;
 &nbsp;
 // mdLinks(ruta2, {validate:true})
 // .then(res =&gt; console.log(res))
@@ -229,7 +241,7 @@ export const mdLinks = (path, opts) =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 25 2019 09:41:40 GMT-0500 (Peru Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 25 2019 18:49:44 GMT-0500 (Peru Standard Time)
 </div>
 </div>
 <script src="prettify.js"></script>

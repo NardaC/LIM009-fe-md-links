@@ -1,6 +1,8 @@
 import {pathMdLinks, optionLinks} from './main.js'
 import {readAllFiles} from './index.js'
 import { promises } from 'fs';
+const clc = require("cli-color");
+
 
 const ruta1 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba'
 // const ruta3 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/prueba/dir1/dir11/file112.html'
@@ -26,6 +28,7 @@ const ruta2 = '/Users/narda/Desktop/Lim009/LIM009-fe-md-links/src'
 //      })
 // }
 export const mdLinks = (path, opts) => {
+    
     return new Promise ((resolve, reject) => {
         try{
             if(opts.validate === true){
@@ -36,13 +39,14 @@ export const mdLinks = (path, opts) => {
         }
         catch(err){
             if(err.code === 'ENOENT'){
-                reject( 'ruta invalida')
+                reject(clc.xterm(196)('ruta invalida'))
             }else{
                 reject(pathMdLinks(path))
             }
         }
     })
 };
+
 
 // mdLinks(ruta2, {validate:true})
 // .then(res => console.log(res))

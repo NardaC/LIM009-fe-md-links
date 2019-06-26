@@ -1,8 +1,8 @@
 {
-  "name": "md-links",
-  "version": "1.0.0",
+  "name": "md-links-ncm",
+  "version": "1.0.1",
   "description": "md-link library",
-  "main": "index.js",
+  "main": "./lib/mdLinks.js",
   "directories": {
     "test": "test"
   },
@@ -21,6 +21,9 @@
     "library",
     "links"
   ],
+  "bin": {
+    "md-links-ncm": "./lib/mdLinksCli.js"
+  },
   "author": "Narda Crocco",
   "license": "ISC",
   "bugs": {
@@ -39,9 +42,11 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/plugin-transform-modules-commonjs": "^7.4.4",
+    "babel-jest": "^24.8.0",
     "eslint": "^5.16.0",
     "fetch-mock": "^7.3.3",
     "jest": "^24.8.0",
-    "mock-fs": "^4.10.1"
+    "mock-fs": "^4.10.1",
+    "regenerator-runtime": "^0.13.2"
   }
 }
