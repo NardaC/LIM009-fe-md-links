@@ -4,9 +4,9 @@ const clc = require("cli-color");
 import { stats, brokenLink} from './validateCli.js'
 import {mdLinks} from './mdLinks.js'
 
-path =process.argv[2];
-opt1 =process.argv[3];
-opt2 =process.argv[4];
+const path =process.argv[2];
+const opt1 =process.argv[3];
+const opt2 =process.argv[4];
 
 
 export const mdLinksCli =(path, opt1, opt2) => {
