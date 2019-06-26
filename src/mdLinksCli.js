@@ -26,9 +26,4 @@ export const mdLinksCli =(path, opt1, opt2) => {
             }
         })
 }
-//console.log(mdLinksCli(ruta1, option1 ,option2))
-
-// mdLinksCli(path,option1,option2)
-// .then(res => console.log(res))
-// .catch(err=> console.log(err))
 
