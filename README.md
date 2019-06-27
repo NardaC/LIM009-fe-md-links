@@ -2,7 +2,7 @@
 
 ## Preámbulo
 
-Es una librería que permite extraer los links desde un archivo o directorio con extension .md 
+Es una librería que permite extraer los links desde un archivo o directorio con extensión .md 
 verifica el estado de los links(si son válidos o no), también las estadísticas, como los link totales, 
 únicos y rotos.
 
@@ -26,7 +26,7 @@ la información que se quiere compartir.
 
 ### instalacion 
 
-npm install -g Nardac/LIM009-fe-md-links
+`npm install NardaC/LIM009-fe-md-links`
 
 #### `mdLinks(path, options)`
 
@@ -54,7 +54,7 @@ las siguientes propiedades:
 ```js
 const mdLinks = require("md-links-ncm");
 
-mdLinks.mdLinks("./some/README.md")
+mdLinks.mdLinks("./user/README.md")
   .then(links => {
     //    => [{ 
     //   href
@@ -64,7 +64,7 @@ mdLinks.mdLinks("./some/README.md")
   })
   .catch(console.error);
 
-mdLinks.mdLinks("./some/README.md", { validate: true })
+mdLinks.mdLinks("./user/README.md", { validate: true })
   .then(links => {
     //  => [{ 
     //   href, 
@@ -88,6 +88,10 @@ mdLinks.mdLinks("./user/desktop")
 ```
 
 ### CLI (Command Line Interface - Interfaz de Línea de Comando)
+
+### instalacion 
+
+`npm install -g NardaC/LIM009-fe-md-links`
 
 El ejecutable de nuestra aplicación debe poder ejecutarse de la siguiente
 manera a través de la terminal:
