@@ -4,7 +4,6 @@ import { promises } from 'fs';
 const clc = require("cli-color");
 
 export const mdLinks = (path, opts) => {
-    
     return new Promise ((resolve, reject) => {
         try{
             if(opts.validate === true){
