@@ -3,7 +3,7 @@
 ## Preámbulo
 
 Es una librería que permite extraer los links desde un archivo o directorio con extension .md 
-y tambien verifica si el estado de los links, tambien las estadisticas, como los link totales, 
+verifica el estado de los links(si son válidos o no), también las estadísticas, como los link totales, 
 únicos y rotos.
 
 [Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado
@@ -24,7 +24,7 @@ la información que se quiere compartir.
 
 ### JavaScript API
 
-###instalacion 
+### instalacion 
 
 npm install -g Nardac/LIM009-fe-md-links
 
