@@ -10,34 +10,35 @@ export const isPathAbsolute = (ruta) => {
     }
 }
 
-export const isFile = (ruta)=>{
+export const isFile = (ruta) => {
     const stats = fs.statSync(ruta);
     return stats.isFile();
 }
 
-export const isDirectory = (ruta)=>{
+export const isDirectory = (ruta) => {
     const stats = fs.statSync(ruta);
     return stats.isDirectory()
 }
 
-export const readFile =(ruta) =>{
+export const readFile =(ruta) => {
     let archivo = fs.readFileSync(ruta, 'utf-8');
     return archivo
 }
 
-export const readDir =(ruta) =>{
+export const readDir =(ruta) => {
     let arrCarpeta = fs.readdirSync(ruta, 'utf-8');
     return arrCarpeta.map((element) => {
         return  path.join(ruta , element)
     })
 }
 
+
 export const isMd = (str) => {
      let md = path.extname(str) === '.md'
      return md
 }
 
-export const readAllFiles = (ruta) =>{
+export const readAllFiles = (ruta) => {
     let arr =[];    
     if (isFile(ruta)) {
         if(isMd(ruta)){

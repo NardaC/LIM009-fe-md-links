@@ -24,8 +24,8 @@ export const pathMdLinks = (ruta) => {
     return links;
 }
 
-export const optionLinks =(ruta)=>{
-    const arrProme = pathMdLinks(ruta).map((prop)=>{
+export const optionLinks =(ruta) => {
+    const arrProme = pathMdLinks(ruta).map((prop) => {
         return fetch(prop.href)
         .then(res => {
             prop.status = res.status
@@ -37,7 +37,7 @@ export const optionLinks =(ruta)=>{
             return prop;
             })
         .catch(err => {
-            prop.status = 500
+                prop.statusText = 500
             return prop;
         })     
     })
